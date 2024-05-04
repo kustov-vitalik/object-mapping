@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+*.iml
+vendor
+.phpunit.result.cache
+composer.lock
+coverage
+test-reports
+phpunit.xml
+

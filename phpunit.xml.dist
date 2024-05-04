@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.0/phpunit.xsd"
+         displayDetailsOnTestsThatTriggerWarnings="true"
+         displayDetailsOnTestsThatTriggerDeprecations="true"
+         colors="true">
+
+    <php>
+        <ini name="display_errors" value="1"/>
+        <ini name="error_reporting" value="-1"/>
+        <ini name="xdebug.mode" value="coverage"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="Safe Typed Mapper Tests">
+            <directory>tests/SafeTyped</directory>
+        </testsuite>
+        <testsuite name="Strict Typed Mapper Tests">
+            <directory>tests/StrictTyped</directory>
+        </testsuite>
+    </testsuites>
+
+    <source>
+        <include>
+            <directory>src</directory>
+        </include>
+    </source>
+
+    <logging>
+        <junit outputFile="./test-reports/junit.xml"/>
+        <teamcity outputFile="./test-reports/teamcity.txt"/>
+        <testdoxHtml outputFile="./test-reports/report.html"/>
+        <testdoxText outputFile="./test-reports/report.txt"/>
+    </logging>
+
+    <coverage pathCoverage="true">
+        <report>
+            <clover outputFile="./coverage/clover.xml"/>
+            <cobertura outputFile="./coverage/cobertura.xml"/>
+            <crap4j outputFile="./coverage/crap4j.xml" threshold="50"/>
+            <html outputDirectory="./coverage/html-coverage"/>
+            <php outputFile="./coverage/coverage.php"/>
+            <text outputFile="./coverage/coverage.txt"/>
+            <xml outputDirectory="./coverage/xml-coverage"/>
+        </report>
+    </coverage>
+
+</phpunit>
